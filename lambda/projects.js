@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 const { URLSearchParams } = require("url");
 
-const API_ENDPOINT = `https://www.artstation.com/projects.json`;
+const API_ENDPOINT = `https://api.timcha.net/projects.json`;
 
 exports.handler = async ({ queryStringParameters }) => {
   const params = new URLSearchParams(queryStringParameters);
