@@ -11,7 +11,7 @@ const App = () => (
   <>
     <BrowserRouter history={hashHistory}>
       <>
-        <Route exact path="/" render={() => <Redirect to="/feed/picks/" />} />
+        <Route exact path="/" render={() => <Redirect to="/feed/trending/" />} />
         <Route
           path="/feed/picks/"
           component={() => <Home sorting={Sorting.PICKS} />}
