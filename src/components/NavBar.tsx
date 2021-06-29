@@ -4,24 +4,6 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Sorting } from "../Sorting";
 
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import URL from 'url-parse';
-
-export default function (props) {
-    const { to, children, newTab, className } = props;
-    const { origin, pathname, query } = new URL(to);
-    const linkProps = {
-        ...props,
-        to: pathname + query
-    };
-    return (
-        (origin === window.location.origin && !newTab)
-        ? <RouterLink {...linkProps} />
-        : <a className={className} href={to} target="_blank">{children}</a>
-    );
-}
-
 
 const is = (sorting: Sorting) => match =>
   !match ? false : match.url === `/feed/${sorting}/`;
@@ -29,11 +11,6 @@ const is = (sorting: Sorting) => match =>
 const scrollToTop = () => window.scrollTo(0, 0);
 
 const links = [
-  {
-    icon: `<svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><style type="text/css">.st0{fill:none;}</style><g><path class="st0" d="M0.3,12.1L0.3,12.1c-0.4,0.5-0.1,1.1,0.4,1.1h3.1v9.4c0,0.3,0.3,0.6,0.6,0.6h5c0.3,0,0.6-0.3,0.6-0.6v-5 c0-1,0.8-1.9,1.9-1.9s1.9,0.8,1.9,1.9v5c0,0.3,0.3,0.6,0.6,0.6h5l0.1,0c0.3,0,0.5-0.3,0.5-0.6v-9.4h3.1c0.6,0,0.8-0.7,0.4-1.1 L12.4,0.8c-0.2-0.2-0.6-0.2-0.9,0L0.3,12.1z M12,2.1l9.7,9.7h-2.2l-0.1,0c-0.3,0-0.5,0.3-0.5,0.6v9.4h-3.8v-4.4 c0-1.7-1.4-3.1-3.1-3.1l-0.2,0c-1.6,0.1-2.9,1.5-2.9,3.1v4.4H5.1v-9.4l0-0.1c0-0.3-0.3-0.5-0.6-0.5H2.3L12,2.1z"/></g></svg>`,
-    title: "Home",
-    to: "https://www.timcha.net"
-  },
   {
     icon: `<svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><style type="text/css">.st0{fill:none;}</style><g><path class="st0" d="M0.3,12.1L0.3,12.1c-0.4,0.5-0.1,1.1,0.4,1.1h3.1v9.4c0,0.3,0.3,0.6,0.6,0.6h5c0.3,0,0.6-0.3,0.6-0.6v-5 c0-1,0.8-1.9,1.9-1.9s1.9,0.8,1.9,1.9v5c0,0.3,0.3,0.6,0.6,0.6h5l0.1,0c0.3,0,0.5-0.3,0.5-0.6v-9.4h3.1c0.6,0,0.8-0.7,0.4-1.1 L12.4,0.8c-0.2-0.2-0.6-0.2-0.9,0L0.3,12.1z M12,2.1l9.7,9.7h-2.2l-0.1,0c-0.3,0-0.5,0.3-0.5,0.6v9.4h-3.8v-4.4 c0-1.7-1.4-3.1-3.1-3.1l-0.2,0c-1.6,0.1-2.9,1.5-2.9,3.1v4.4H5.1v-9.4l0-0.1c0-0.3-0.3-0.5-0.6-0.5H2.3L12,2.1z"/></g></svg>`,
     title: "Home",
